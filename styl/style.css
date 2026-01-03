@@ -219,6 +219,24 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   /* Řádek s počasím a články 1:1 */
   .nav .menu .menu-pills-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center; }
   .nav .menu .menu-pills-row > * { display: inline-flex; justify-content: center; }
+  /* Rozbalovací submenu (Služby) */
+  .nav .menu .has-children > a { position: relative; }
+  .nav .menu .has-children > a::after {
+    content: "▾";
+    margin-left: auto;
+    font-size: 12px;
+    opacity: .85;
+    transform: translateY(1px) rotate(0deg);
+    transition: transform var(--transition-2);
+  }
+  .nav .menu .has-children.open > a::after { transform: translateY(1px) rotate(180deg); }
+  .submenu {
+    position: static; margin: 4px 0 0 10px; padding: 0;
+    background: transparent; border: 0; box-shadow: none;
+    max-height: 0; overflow: hidden; opacity: 0; visibility: hidden;
+    transition: max-height var(--transition-2), opacity var(--transition-2);
+  }
+  .has-children.open .submenu { max-height: 1000px; opacity: 1; visibility: visible; }
   .burger { display: inline-block; }
   .grid-3 { grid-template-columns: 1fr; }
   h1 { font-size: 36px; }

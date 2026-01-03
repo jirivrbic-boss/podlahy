@@ -86,6 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setupContactFormValidation();
   setupCookieBanner();
   setupMenuPillsRow();
+  setupMobileSubmenus();
 });
 
 // Contact form validation
@@ -131,6 +132,23 @@ function setupContactFormValidation() {
 
     status.textContent = 'Děkujeme, zpráva byla odeslána. Ozveme se co nejdříve.';
     form.reset();
+  });
+}
+
+// Mobile: toggle submenus (e.g., Služby) on tap
+function setupMobileSubmenus() {
+  if (!window.matchMedia || !window.matchMedia('(max-width: 768px)').matches) return;
+  const parents = selectAll('.has-children > a');
+  parents.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      // prevent navigation, toggle submenu
+      e.preventDefault();
+      e.stopPropagation();
+      const li = link.closest('.has-children');
+      if (!li) return;
+      const isOpen = li.classList.toggle('open');
+      link.setAttribute('aria-expanded', String(isOpen));
+    });
   });
 }
 
