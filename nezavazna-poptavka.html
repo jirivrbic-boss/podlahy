@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nezávazná poptávka — Podlahy Cheb</title>
+    <meta name="description" content="Rychlá nezávazná poptávka. Napište nám parametry projektu a my se ozveme do 1 pracovního dne." />
+    <link rel="icon" type="image/png" href="fotky/ikonka/ck.png" />
+    <link rel="canonical" href="https://www.podlahycheb.cz/nezavazna-poptavka.html" />
+    <meta name="theme-color" content="#0e2a1f" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"LocalBusiness","name":"Podlahy Čábelka & Koucký","url":"https://www.podlahycheb.cz/","telephone":["+420602420546","+420602420547"],"address":{"@type":"PostalAddress","streetAddress":"Evropská 2356/27","addressLocality":"Cheb","postalCode":"350 02","addressCountry":"CZ"}}
+    </script>
+    <link rel="stylesheet" href="styl/style.css" />
+    <link rel="stylesheet" href="styl/components.css" />
+  </head>
+  <body class="theme-dark">
+    <div class="page-transition" aria-hidden="true"></div>
+    <header class="site-header glass sticky">
+      <div class="container nav-container">
+        <a class="brand" href="index.html">
+          <img src="fotky/ikonka/ck.png" alt="Podlahy Cheb" class="brand-mark" width="36" height="36" />
+          <span class="brand-name">Podlahy Cheb</span>
+        </a>
+        <nav class="nav" aria-label="Hlavní navigace">
+          <button class="burger" aria-controls="primary-menu" aria-expanded="false">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="sr-only">Menu</span>
+          </button>
+          <ul id="primary-menu" class="menu">
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="o-nas.html">O nás</a></li>
+            <li class="has-children">
+              <a href="sluzby/pokladka-podlah.html">Služby</a>
+              <ul class="submenu">
+                <li><a href="sluzby/pokladka-podlah.html">Pokládka podlah</a></li>
+                <li><a href="sluzby/renovace-parket.html">Renovace parket</a></li>
+                <li><a href="sluzby/vinyl.html">Vinyl</a></li>
+                <li><a href="sluzby/lamino.html">Lamino</a></li>
+                <li><a href="sluzby/priprava-podkladu.html">Příprava podkladu</a></li>
+                <li><a href="sluzby/antistaticke-podlahy.html">Antistatické podlahy</a></li>
+                <li><a href="sluzby/obklad-schodist.html">Obklad schodišť</a></li>
+                <li><a href="sluzby/prumyslove-podlahy.html">Průmyslové podlahy</a></li>
+                <li><a href="sluzby/sportovni-podlahy.html">Sportovní podlahy</a></li>
+                <li><a href="sluzby/zamereni-navrh.html">Zaměření & návrh</a></li>
+              </ul>
+            </li>
+            <li><a href="reference.html">Reference</a></li>
+            <li><a href="cenik.html">Ceník</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a class="btn btn-primary active" href="nezavazna-poptavka.html">Nezávazná poptávka</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-title"><span class="dot"></span><h1>Nezávazná poptávka</h1></div>
+          <p>Napište nám pár informací o projektu. Ozveme se zpravidla do 1 pracovního dne a domluvíme zaměření.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="glass-card" style="max-width:840px; margin:0 auto;">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="grid-2">
+                <label>
+                  <span>Jméno a příjmení</span>
+                  <input type="text" name="name" required placeholder="Vaše jméno" />
+                  <small class="error" aria-live="polite"></small>
+                </label>
+                <label>
+                  <span>Telefon</span>
+                  <input type="tel" name="phone" required placeholder="+420 ..." />
+                  <small class="error" aria-live="polite"></small>
+                </label>
+              </div>
+              <label>
+                <span>E‑mail</span>
+                <input type="email" name="email" required placeholder="name@example.com" />
+                <small class="error" aria-live="polite"></small>
+              </label>
+              <label>
+                <span>Zpráva</span>
+                <textarea name="message" rows="6" required placeholder="Stručně popište projekt (plocha, materiál, termín)"></textarea>
+                <small class="error" aria-live="polite"></small>
+              </label>
+              <label class="consent-row">
+                <input type="checkbox" name="consent" required />
+                <span>Souhlasím se zpracováním osobních údajů pro účely poptávky</span>
+              </label>
+              <div class="actions">
+                <button type="submit" class="btn btn-primary shine">Odeslat poptávku</button>
+                <div id="form-status" role="status" style="margin-left:12px; color: var(--silver-300);"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="fotky/ikonka/ck.png" alt="Podlahy Čábelka & Koucký" width="32" height="32" />
+            <span>Podlahy Čábelka & Koucký</span>
+          </div>
+        </div>
+
+        <div class="footer-columns">
+          <section class="footer-col">
+            <h3>Pokládejte podlahy s firmou Čábelka & Koucký</h3>
+            <h3>Otevírací doba</h3>
+            <p>Pondělí – Čtvrtek<br>9:00 – 12:00, 13:00 – 16:30</p>
+            <p>Pátek<br>9:00 – 14:00</p>
+            <p>Sobota – Neděle<br>zavřeno (dle dohody)</p>
+          </section>
+
+          <section class="footer-col">
+            <h3>Naše služby</h3>
+            <ul class="footer-list">
+              <li><a href="sluzby/pokladka-podlah.html">Pokládka podlah</a></li>
+              <li><a href="sluzby/renovace-parket.html">Renovace parket</a></li>
+              <li><a href="sluzby/vinyl.html">Vinyl</a></li>
+              <li><a href="sluzby/lamino.html">Lamino</a></li>
+              <li><a href="sluzby/priprava-podkladu.html">Příprava podkladu</a></li>
+              <li><a href="sluzby/antistaticke-podlahy.html">Antistatické podlahy</a></li>
+              <li><a href="sluzby/obklad-schodist.html">Obklad schodišť</a></li>
+              <li><a href="sluzby/prumyslove-podlahy.html">Průmyslové podlahy</a></li>
+              <li><a href="sluzby/sportovni-podlahy.html">Sportovní podlahy</a></li>
+              <li><a href="sluzby/zamereni-navrh.html">Zaměření & návrh</a></li>
+            </ul>
+          </section>
+
+          <section class="footer-col">
+            <h3>Kontakt</h3>
+            <p>Evropská 2356/27, 350 02 Cheb 2</p>
+            <p><strong>MILAN ČÁBELKA</strong><br>
+              <a href="tel:+420602420546">+420 602 420 546</a><br>
+              <a href="mailto:cabi63@seznam.cz">cabi63@seznam.cz</a>
+            </p>
+            <p><strong>VÁCLAV KOUCKÝ</strong><br>
+              <a href="tel:+420602420547">+420 602 420 547</a>
+            </p>
+            <p><strong>ASISTENTKA</strong><br>
+              <a href="tel:+420733536889">+420 733 536 889</a><br>
+              <a href="mailto:parket.studio@seznam.cz">parket.studio@seznam.cz</a>
+            </p>
+          </section>
+
+          <section class="footer-col">
+            <h3>Stránky</h3>
+            <ul class="footer-list">
+              <li><a href="o-nas.html">O nás</a></li>
+              <li><a href="reference.html">Reference</a></li>
+              <li><a href="cenik.html">Ceník</a></li>
+              <li><a href="kontakt.html">Kontakt</a></li>
+              <li><a href="zasady-cookies.html">Zásady cookies</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="footer-legal">
+          <span id="year"></span> © Podlahy Cheb. Všechna práva vyhrazena.
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .contact-form label span { display:block; margin: 0 0 6px 0; color: var(--silver-200); }
+      .contact-form input, .contact-form textarea { width: 100%; padding: 12px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: var(--text); outline: none; }
+      .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(207,211,212,0.6); box-shadow: 0 0 0 4px rgba(207,211,212,0.15); }
+      .contact-form .error { min-height: 16px; color: #ffb4b4; }
+      .contact-form [aria-invalid="true"] { border-color: #ff8a8a; box-shadow: 0 0 0 4px rgba(255,138,138,0.15); }
+      .consent-row { display:flex; align-items:center; gap:10px; margin: 10px 0 0 0; color: var(--text-dim); }
+      .consent-row input { width: 18px; height: 18px; }
+    </style>
+
+    <script src="js/animations.js" defer></script>
+    <script src="js/slider.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+  </html>
