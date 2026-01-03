@@ -109,6 +109,7 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 .hero-inner { position: relative; z-index: 1; padding: 88px 0 72px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
 .hero-copy { max-width: 720px; padding: 28px; }
 .actions { margin-top: 16px; display: flex; gap: 12px; }
+.hero-copy { position: relative; z-index: 2; }
 .hero-scroll-indicator { position: absolute; left: 50%; bottom: 20px; width: 2px; height: 36px; background: linear-gradient(180deg, rgba(207,211,212,0.7), rgba(207,211,212,0)); transform: translateX(-50%); border-radius: 2px; opacity: 0.8; }
 
 
@@ -260,6 +261,7 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   .hero-avatar { right: 0; bottom: -250px; }
   .hero-avatar img { width: 220px; height: auto; }
   .hero-avatar::after { width: 76%; height: 12px; bottom: -8px; filter: blur(8px); }
+  .actions { flex-direction: column; align-items: flex-start; }
   .submenu { position: static; margin: 4px 0 0 10px; padding: 0; background: transparent; border: 0; box-shadow: none; opacity: 1; visibility: visible; transform: none; }
   .submenu a { padding: 6px 8px; }
   .container { padding: 0 16px; }
