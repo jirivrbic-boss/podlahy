@@ -12,19 +12,30 @@ function setupMobileMenu() {
   const burger = select('.burger');
   const menu = select('#primary-menu');
   if (!burger || !menu) return;
-  // ensure close button exists (mobile)
-  if (!select('.menu-close', menu)) {
-    const btn = document.createElement('button');
-    btn.className = 'menu-close';
-    btn.type = 'button';
-    btn.setAttribute('aria-label', 'Zavřít menu');
-    btn.innerHTML = '×';
-    menu.appendChild(btn);
-    btn.addEventListener('click', () => {
-      burger.setAttribute('aria-expanded', 'false');
-      menu.classList.remove('open');
-    });
+  // ensure close button exists only on mobile/tablet (<=1024px)
+  const mq = window.matchMedia('(max-width: 1024px)');
+  function syncCloseButton() {
+    const existing = select('.menu-close', menu);
+    if (mq.matches) {
+      if (!existing) {
+        const btn = document.createElement('button');
+        btn.className = 'menu-close';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Zavřít menu');
+        btn.innerHTML = '×';
+        menu.appendChild(btn);
+        btn.addEventListener('click', () => {
+          burger.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('open');
+        });
+      }
+    } else if (existing) {
+      existing.remove();
+    }
   }
+  syncCloseButton();
+  if (mq.addEventListener) mq.addEventListener('change', syncCloseButton);
+  else if (mq.addListener) mq.addListener(syncCloseButton);
   burger.addEventListener('click', () => {
     const expanded = burger.getAttribute('aria-expanded') === 'true';
     burger.setAttribute('aria-expanded', String(!expanded));
