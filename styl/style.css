@@ -240,6 +240,17 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
     transition: max-height var(--transition-2), opacity var(--transition-2);
   }
   .has-children.open .submenu { max-height: 1000px; opacity: 1; visibility: visible; }
+  /* Křížek pro zavření mobilního menu */
+  .nav .menu .menu-close {
+    position: absolute; top: 10px; right: 10px;
+    width: 36px; height: 36px; border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg); color: var(--silver-200);
+    font-size: 22px; line-height: 1; cursor: pointer;
+    display: grid; place-items: center;
+    box-shadow: var(--shadow-1);
+  }
+  .nav .menu .menu-close:hover { color: var(--white); }
   .burger { display: inline-block; }
   .grid-3 { grid-template-columns: 1fr; }
   h1 { font-size: 36px; }

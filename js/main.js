@@ -12,6 +12,19 @@ function setupMobileMenu() {
   const burger = select('.burger');
   const menu = select('#primary-menu');
   if (!burger || !menu) return;
+  // ensure close button exists (mobile)
+  if (!select('.menu-close', menu)) {
+    const btn = document.createElement('button');
+    btn.className = 'menu-close';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Zavřít menu');
+    btn.innerHTML = '×';
+    menu.appendChild(btn);
+    btn.addEventListener('click', () => {
+      burger.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('open');
+    });
+  }
   burger.addEventListener('click', () => {
     const expanded = burger.getAttribute('aria-expanded') === 'true';
     burger.setAttribute('aria-expanded', String(!expanded));
