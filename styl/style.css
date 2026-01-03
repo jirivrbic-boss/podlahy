@@ -189,7 +189,8 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
     width: 86vw; max-width: 360px;
     display: grid; gap: 10px; align-content: flex-start;
     padding: 18px;
-    background: #0b1f17; /* plně neprůhledné pozadí pro lepší čitelnost */
+    /* tmavě zelené pozadí v návaznosti na barevnost webu */
+    background: linear-gradient(180deg, rgba(14,42,31,0.98) 0%, rgba(11,31,23,0.98) 100%);
     border-right: 1px solid rgba(255,255,255,0.08);
     border-radius: 0 14px 14px 0;
     transform: translateX(-105%);
