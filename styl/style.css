@@ -189,7 +189,7 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
     width: 86vw; max-width: 360px;
     display: grid; gap: 10px; align-content: flex-start;
     padding: 18px;
-    background: rgba(8,18,14,0.95);
+    background: #0b1f17; /* plně neprůhledné pozadí pro lepší čitelnost */
     border-right: 1px solid rgba(255,255,255,0.08);
     border-radius: 0 14px 14px 0;
     transform: translateX(-105%);
