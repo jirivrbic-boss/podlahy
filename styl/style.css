@@ -209,6 +209,10 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   .nav .menu a[href$="cenik.html"]::before { content: "💰"; }
   .nav .menu a[href$="kontakt.html"]::before { content: "✉️"; }
   .nav .menu a[href$="nezavazna-poptavka.html"]::before { content: "📝"; }
+  /* Neaplikovat pseudo-ikonu na odkazy s logem (Články) */
+  .nav .menu a.pill::before { content: none; width: 0; }
+  .nav .menu a.pill { align-items: center; }
+  .nav .menu a.pill img { height: 18px; width: auto; display: inline-block; vertical-align: middle; }
   .burger { display: inline-block; }
   .grid-3 { grid-template-columns: 1fr; }
   h1 { font-size: 36px; }
