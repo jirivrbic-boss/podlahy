@@ -190,13 +190,15 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
     display: grid; gap: 10px; align-content: flex-start;
     padding: 18px;
     /* tmavě zelené pozadí v návaznosti na barevnost webu */
-    background: linear-gradient(180deg, rgba(14,42,31,0.98) 0%, rgba(11,31,23,0.98) 100%);
+    background: linear-gradient(180deg, #0e2a1f 0%, #0b1f17 100%);
     border-left: 1px solid rgba(255,255,255,0.08);
     border-radius: 14px 0 0 14px;
     transform: translateX(105%);
     opacity: 1; visibility: visible;
     transition: transform var(--transition-2);
     z-index: 999;
+    height: 100dvh;
+    overflow-y: auto;
   }
   .nav .menu.open { transform: translateX(0); }
   .nav .menu a { display: flex; align-items: center; gap: 10px; padding: 10px 6px; border-radius: 10px; }
