@@ -216,6 +216,9 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   .nav .menu a.pill::before { content: none; width: 0; }
   .nav .menu a.pill { align-items: center; }
   .nav .menu a.pill img { height: 18px; width: auto; display: inline-block; vertical-align: middle; }
+  /* Řádek s počasím a články 1:1 */
+  .nav .menu .menu-pills-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center; }
+  .nav .menu .menu-pills-row > * { display: inline-flex; justify-content: center; }
   .burger { display: inline-block; }
   .grid-3 { grid-template-columns: 1fr; }
   h1 { font-size: 36px; }

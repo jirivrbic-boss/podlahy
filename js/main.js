@@ -85,6 +85,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setupWeatherCheb();
   setupContactFormValidation();
   setupCookieBanner();
+  setupMenuPillsRow();
 });
 
 // Contact form validation
@@ -131,6 +132,31 @@ function setupContactFormValidation() {
     status.textContent = 'Děkujeme, zpráva byla odeslána. Ozveme se co nejdříve.';
     form.reset();
   });
+}
+
+// Group weather + articles into one row (mobile menu)
+function setupMenuPillsRow() {
+  try {
+    if (!window.matchMedia || !window.matchMedia('(max-width: 768px)').matches) return;
+    const menu = select('#primary-menu');
+    if (!menu) return;
+    const weather = select('#weather-cheb', menu);
+    const articles = select('a[href*="hokejkv.cz/archiv"]', menu);
+    if (!weather || !articles) return;
+    const liWeather = weather.closest('li');
+    const liArticles = articles.closest('li');
+    if (!liWeather || !liArticles || liWeather === liArticles) return;
+    // Create row li and move content
+    const row = document.createElement('li');
+    row.className = 'menu-pills-row';
+    // Move nodes
+    row.appendChild(weather);
+    row.appendChild(articles);
+    // Insert at position of first pill and remove the other li
+    menu.insertBefore(row, liWeather);
+    liWeather.remove();
+    liArticles.remove();
+  } catch (_) { /* no-op */ }
 }
 
 // Simple cookie consent banner
