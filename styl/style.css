@@ -127,6 +127,24 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 .link { color: var(--silver-200); font-weight: 600; }
 .link:hover { color: var(--white); }
 
+/* Gallery thumbnails */
+.gallery-grid img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,0.03);
+}
+@media (max-width: 1024px) {
+  .gallery-grid img { height: 220px; }
+}
+@media (max-width: 768px) {
+  .gallery-grid img { height: 200px; }
+}
+@media (max-width: 480px) {
+  .gallery-grid img { height: 160px; }
+}
+
 /* CTA */
 .cta-inner { text-align: center; padding: 28px; }
 
