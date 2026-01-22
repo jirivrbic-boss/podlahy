@@ -171,7 +171,8 @@ function setupBeforeAfterComparisons() {
       const rect = root.getBoundingClientRect();
       const x = Math.max(0, Math.min(px - rect.left, rect.width));
       const percent = (x / rect.width) * 100;
-      overlay.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+      // Clip from left side so that at center is visible right-half (Po) and moving right odkryje Před
+      overlay.style.clipPath = `inset(0 0 0 ${percent}%)`;
       handle.style.left = `${percent}%`;
     };
     const start = (e) => {
