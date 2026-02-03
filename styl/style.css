@@ -155,7 +155,7 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 .breadcrumb { font-size: 14px; color: var(--text-dim); margin-bottom: 16px; }
 .breadcrumb a { color: var(--silver-300); }
 
-/* Sortiment detail: foto vlevo, text vpravo */
+/* Sortiment detail: text vlevo, fotka vpravo (jako u služeb) */
 .sortiment-detail .detail-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -163,14 +163,9 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   align-items: start;
   margin-bottom: 32px;
 }
-.sortiment-detail .detail-media {
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  position: sticky;
-  top: 100px;
-}
+.sortiment-detail .detail-content { order: 1; padding: 0; }
+.sortiment-detail .detail-media { order: 2; border-radius: var(--radius-xl); overflow: hidden; position: sticky; top: 100px; }
 .sortiment-detail .detail-media img { width: 100%; height: auto; display: block; }
-.sortiment-detail .detail-content { padding: 0; }
 .sortiment-detail .detail-content p { margin-bottom: 12px; }
 .sortiment-detail .detail-links { margin-top: 16px; }
 .sortiment-detail .detail-links a { margin-right: 12px; }
