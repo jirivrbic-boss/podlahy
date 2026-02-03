@@ -1,6 +1,9 @@
 // Carousel and modal gallery for reference page
 
 const Carousel = (() => {
+  const GAP = 16;
+  const AUTO_INTERVAL_MS = 4500;
+
   function init() {
     document.querySelectorAll('[data-carousel]').forEach((wrap) => {
       const track = wrap.querySelector('.carousel-track');
@@ -9,14 +12,34 @@ const Carousel = (() => {
       const nextBtn = wrap.querySelector('.carousel-next');
       if (!track || !viewport) return;
 
+      const slides = track.querySelectorAll('.carousel-slide');
+      const slideWidth = slides[0]?.offsetWidth ?? 320;
+      const step = slideWidth + GAP;
+
       const scrollOne = (dir) => {
-        const slideWidth = track.querySelector('.carousel-slide')?.offsetWidth ?? 320;
-        const gap = 16;
-        const step = (slideWidth + gap) * dir;
-        viewport.scrollBy({ left: step, behavior: 'smooth' });
+        viewport.scrollBy({ left: step * dir, behavior: 'smooth' });
       };
+
+      const goToIndex = (index) => {
+        const total = slides.length;
+        const i = ((index % total) + total) % total;
+        viewport.scrollTo({ left: i * step, behavior: 'smooth' });
+      };
+
+      const getCurrentIndex = () => {
+        const x = viewport.scrollLeft;
+        return Math.round(x / step) % slides.length;
+      };
+
       prevBtn?.addEventListener('click', () => scrollOne(-1));
       nextBtn?.addEventListener('click', () => scrollOne(1));
+
+      // Automatické točení dokola — oba kolotoče se točí pořád
+      setInterval(() => {
+        const current = getCurrentIndex();
+        const next = (current + 1) % slides.length;
+        goToIndex(next);
+      }, AUTO_INTERVAL_MS);
     });
   }
   return { init };
