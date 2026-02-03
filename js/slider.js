@@ -13,21 +13,28 @@ const Carousel = (() => {
       if (!track || !viewport) return;
 
       const slides = track.querySelectorAll('.carousel-slide');
-      const slideWidth = slides[0]?.offsetWidth ?? 320;
-      const step = slideWidth + GAP;
+      const GAP_PX = 16;
+
+      const getStep = () => {
+        const w = slides[0]?.offsetWidth ?? 320;
+        return w + GAP_PX;
+      };
 
       const scrollOne = (dir) => {
-        viewport.scrollBy({ left: step * dir, behavior: 'smooth' });
+        const step = getStep();
+        track.scrollBy({ left: step * dir, behavior: 'smooth' });
       };
 
       const goToIndex = (index) => {
         const total = slides.length;
         const i = ((index % total) + total) % total;
-        viewport.scrollTo({ left: i * step, behavior: 'smooth' });
+        const step = getStep();
+        track.scrollTo({ left: i * step, behavior: 'smooth' });
       };
 
       const getCurrentIndex = () => {
-        const x = viewport.scrollLeft;
+        const step = getStep();
+        const x = track.scrollLeft;
         return Math.round(x / step) % slides.length;
       };
 
