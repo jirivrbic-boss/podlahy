@@ -1,11 +1,34 @@
-// Simple slider and modal gallery for reference page
+// Carousel and modal gallery for reference page
+
+const Carousel = (() => {
+  function init() {
+    document.querySelectorAll('[data-carousel]').forEach((wrap) => {
+      const track = wrap.querySelector('.carousel-track');
+      const viewport = wrap.querySelector('.carousel-viewport');
+      const prevBtn = wrap.querySelector('.carousel-prev');
+      const nextBtn = wrap.querySelector('.carousel-next');
+      if (!track || !viewport) return;
+
+      const scrollOne = (dir) => {
+        const slideWidth = track.querySelector('.carousel-slide')?.offsetWidth ?? 320;
+        const gap = 16;
+        const step = (slideWidth + gap) * dir;
+        viewport.scrollBy({ left: step, behavior: 'smooth' });
+      };
+      prevBtn?.addEventListener('click', () => scrollOne(-1));
+      nextBtn?.addEventListener('click', () => scrollOne(1));
+    });
+  }
+  return { init };
+})();
 
 const Gallery = (() => {
-  let modal, modalImg, modalCaption, closeBtn, prevBtn, nextBtn, images, index = 0;
+  let modal, modalImg, modalCaption, closeBtn, prevBtn, nextBtn, currentImages = [], index = 0;
 
-  function open(i) {
+  function open(imagesArr, i) {
+    currentImages = imagesArr;
     index = i;
-    const img = images[index];
+    const img = currentImages[index];
     modalImg.src = img.dataset.full || img.src;
     modalImg.alt = img.alt || '';
     modalCaption.textContent = img.alt || '';
@@ -16,8 +39,8 @@ const Gallery = (() => {
     modal.classList.remove('open');
     document.documentElement.style.overflow = '';
   }
-  function prev() { open((index - 1 + images.length) % images.length); }
-  function next() { open((index + 1) % images.length); }
+  function prev() { open(currentImages, (index - 1 + currentImages.length) % currentImages.length); }
+  function next() { open(currentImages, (index + 1) % currentImages.length); }
 
   function onKey(e) {
     if (!modal.classList.contains('open')) return;
@@ -34,12 +57,15 @@ const Gallery = (() => {
     closeBtn = modal.querySelector('[data-close]');
     prevBtn = modal.querySelector('[data-prev]');
     nextBtn = modal.querySelector('[data-next]');
-    images = Array.from(document.querySelectorAll('[data-gallery] img'));
 
-    images.forEach((img, i) => {
-      img.addEventListener('click', () => open(i));
-      img.style.cursor = 'zoom-in';
+    document.querySelectorAll('[data-gallery]').forEach((container) => {
+      const images = Array.from(container.querySelectorAll('img'));
+      images.forEach((img, i) => {
+        img.addEventListener('click', () => open(images, i));
+        img.style.cursor = 'zoom-in';
+      });
     });
+
     closeBtn?.addEventListener('click', close);
     prevBtn?.addEventListener('click', prev);
     nextBtn?.addEventListener('click', next);
@@ -51,6 +77,7 @@ const Gallery = (() => {
 })();
 
 window.addEventListener('DOMContentLoaded', () => {
+  Carousel.init();
   Gallery.init();
 });
 

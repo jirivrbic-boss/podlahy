@@ -132,6 +132,17 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 .cta-inline p { margin: 0; }
 .sortiment-meta { font-size: 0.9em; color: var(--text-dim); margin-top: 8px; }
 
+.sortiment-teaser .card-body { display: flex; flex-direction: column; align-items: stretch; gap: 10px; }
+.sortiment-teaser-btns { flex-direction: column; }
+.sortiment-teaser-btns .btn { width: 100%; justify-content: center; text-align: center; }
+
+.breadcrumb { font-size: 14px; color: var(--text-dim); margin-bottom: 16px; }
+.breadcrumb a { color: var(--silver-300); }
+.sortiment-detail .detail-media { border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 24px; }
+.sortiment-detail .detail-media img { width: 100%; height: auto; display: block; }
+.sortiment-detail .detail-links { margin-top: 20px; }
+.sortiment-detail .detail-links a { margin-right: 12px; }
+
 /* Gallery thumbnails */
 .gallery-grid img {
   width: 100%;
@@ -148,6 +159,74 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 }
 @media (max-width: 480px) {
   .gallery-grid img { height: 160px; }
+}
+
+/* Reference carousels */
+.reference-carousel-section .section-title { margin-bottom: 20px; }
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+.carousel-viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.03);
+}
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-slide {
+  flex: 0 0 auto;
+  width: min(320px, 85vw);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.carousel-slide img:hover { opacity: 0.95; }
+.carousel-btn {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--silver-300);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-1), color var(--transition-1);
+}
+.carousel-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+}
+@media (max-width: 768px) {
+  .carousel-slide { width: min(280px, 78vw); }
+  .carousel-slide img { height: 180px; }
+  .carousel-btn { width: 40px; height: 40px; font-size: 22px; flex: 0 0 40px; }
 }
 
 /* Before/After compare */
