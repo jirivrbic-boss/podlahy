@@ -2,7 +2,7 @@
 
 const Carousel = (() => {
   const GAP = 16;
-  const AUTO_INTERVAL_MS = 4500;
+  const AUTO_INTERVAL_MS = 500;
 
   function init() {
     document.querySelectorAll('[data-carousel]').forEach((wrap) => {
@@ -25,27 +25,34 @@ const Carousel = (() => {
         track.scrollBy({ left: step * dir, behavior: 'smooth' });
       };
 
-      const goToIndex = (index) => {
+      const goToIndex = (index, smooth = true) => {
         const total = slides.length;
         const i = ((index % total) + total) % total;
         const step = getStep();
-        track.scrollTo({ left: i * step, behavior: 'smooth' });
+        track.scrollTo({ left: i * step, behavior: smooth ? 'smooth' : 'auto' });
       };
 
       const getCurrentIndex = () => {
         const step = getStep();
         const x = track.scrollLeft;
-        return Math.round(x / step) % slides.length;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        if (maxScroll <= 0) return 0;
+        const index = Math.round(x / step) % slides.length;
+        return Math.min(index, slides.length - 1);
       };
 
       prevBtn?.addEventListener('click', () => scrollOne(-1));
       nextBtn?.addEventListener('click', () => scrollOne(1));
 
-      // Automatické točení dokola — oba kolotoče se točí pořád
+      // Automatické točení v loopu — po poslední fotce znovu od první
       setInterval(() => {
-        const current = getCurrentIndex();
-        const next = (current + 1) % slides.length;
-        goToIndex(next);
+        const step = getStep();
+        const x = track.scrollLeft;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        const atEnd = maxScroll > 0 && x >= maxScroll - step;
+        const next = atEnd ? 0 : getCurrentIndex() + 1;
+        const nextIndex = next >= slides.length ? 0 : next;
+        goToIndex(nextIndex, true);
       }, AUTO_INTERVAL_MS);
     });
   }
