@@ -121,7 +121,7 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: left center; transform: translateZ(0); will-change: transform; filter: saturate(0.9) contrast(1.05) brightness(0.9); }
 .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; display: none; }
 .hero-inner { position: relative; z-index: 1; padding: 140px 0 72px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
-.hero-copy { max-width: 720px; padding: 28px; }
+.hero-copy { max-width: 480px; padding: 28px; }
 .actions { margin-top: 16px; display: flex; gap: 12px; }
 .hero-copy { position: relative; z-index: 2; }
 /* Rámeček na domovské stránce méně rozostřený, aby víc prosvítalo pozadí */
