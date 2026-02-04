@@ -159,16 +159,66 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 .sortiment-detail .detail-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 32px;
   align-items: start;
   margin-bottom: 32px;
+  margin-top: 8px;
 }
-.sortiment-detail .detail-content { order: 1; padding: 0; }
-.sortiment-detail .detail-media { order: 2; border-radius: var(--radius-xl); overflow: hidden; position: sticky; top: 100px; }
-.sortiment-detail .detail-media img { width: 100%; height: auto; display: block; }
-.sortiment-detail .detail-content p { margin-bottom: 12px; }
-.sortiment-detail .detail-links { margin-top: 16px; }
-.sortiment-detail .detail-links a { margin-right: 12px; }
+.sortiment-detail .detail-content { 
+  order: 1; 
+  padding: 32px 36px; 
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-self: start;
+}
+.sortiment-detail .detail-media { 
+  order: 2; 
+  border-radius: var(--radius-xl); 
+  overflow: hidden; 
+  position: sticky; 
+  top: 120px;
+  align-self: start;
+}
+.sortiment-detail .detail-media img { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+}
+.sortiment-detail .detail-content p { 
+  margin-bottom: 22px; 
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+.sortiment-detail .detail-content p:first-of-type {
+  font-size: 18px;
+  line-height: 1.85;
+  margin-bottom: 28px;
+  color: var(--text);
+  font-weight: 400;
+}
+.sortiment-detail .detail-content p strong {
+  color: var(--silver-200);
+  font-weight: 600;
+  display: inline;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+.sortiment-detail .detail-links { 
+  margin-top: 24px; 
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.sortiment-detail .detail-links a { 
+  margin-right: 16px; 
+  font-weight: 600;
+  color: var(--silver-300);
+  transition: color var(--transition-1);
+}
+.sortiment-detail .detail-links a:hover { 
+  color: var(--white);
+}
 
 /* CTA blok pod detailem — „Nechte si připravit nabídku“ */
 .detail-cta {
@@ -184,8 +234,23 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 .detail-cta .btn { background: #f0f0f0; color: #1a1a1a; border: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
 .detail-cta .btn:hover { background: #fff; }
 @media (max-width: 768px) {
-  .sortiment-detail .detail-row { grid-template-columns: 1fr; }
-  .sortiment-detail .detail-media { position: static; }
+  .sortiment-detail .detail-row { 
+    grid-template-columns: 1fr; 
+    gap: 24px;
+  }
+  .sortiment-detail .detail-content { 
+    padding: 24px 20px; 
+  }
+  .sortiment-detail .detail-content p:first-of-type {
+    font-size: 17px;
+  }
+  .sortiment-detail .detail-media { 
+    position: static; 
+    order: 1;
+  }
+  .sortiment-detail .detail-content {
+    order: 2;
+  }
   .detail-cta { padding: 24px 20px; }
   .detail-cta h2 { font-size: 1.35rem; }
 }
