@@ -255,6 +255,121 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   .detail-cta h2 { font-size: 1.35rem; }
 }
 
+/* Reference — stavby, kde jsme pracovali */
+.ref-buildings-section { padding-top: 48px; }
+.ref-buildings-intro {
+  max-width: 56ch;
+  margin-bottom: 40px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-dim);
+}
+.ref-buildings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.ref-category {
+  padding: 28px 26px;
+  transition: transform var(--transition-1), box-shadow var(--transition-2);
+}
+.ref-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.12);
+}
+.ref-category-wide {
+  grid-column: 1 / -1;
+}
+.ref-category-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--silver-100);
+  letter-spacing: 0.02em;
+}
+.ref-category-icon {
+  font-size: 22px;
+  line-height: 1;
+  filter: grayscale(0.2);
+}
+.ref-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ref-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+.ref-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-300);
+  opacity: 0.8;
+}
+.ref-list-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+.ref-list-inline li::before {
+  display: none;
+}
+.ref-list-inline li {
+  padding-left: 0;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background var(--transition-1), border-color var(--transition-1);
+}
+.ref-list-inline li:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
+}
+@media (max-width: 1024px) {
+  .ref-buildings-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .ref-buildings-section { padding-top: 36px; }
+  .ref-buildings-intro { margin-bottom: 28px; font-size: 16px; }
+  .ref-buildings-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .ref-category-wide { grid-column: 1; }
+  .ref-category { padding: 22px 20px; }
+  .ref-category-title { font-size: 17px; margin-bottom: 16px; }
+  .ref-list-inline {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .ref-list-inline li {
+    padding: 8px 0;
+    padding-left: 18px;
+    background: none;
+    border: none;
+    border-radius: 0;
+  }
+  .ref-list-inline li::before {
+    display: block;
+  }
+}
+
 /* Gallery thumbnails */
 .gallery-grid img {
   width: 100%;
