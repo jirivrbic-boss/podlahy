@@ -28,6 +28,7 @@ html, body { height: 100%; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
   background: radial-gradient(1200px 800px at 10% 10%, #123528 0%, #0b1f17 60%),
@@ -478,6 +479,17 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   .carousel-btn { width: 40px; height: 40px; font-size: 22px; flex: 0 0 40px; }
 }
 
+/* Kontakt — mapa na mobilu menší výška */
+.ref-map-card { min-height: 440px !important; }
+@media (max-width: 768px) {
+  .ref-map-card { min-height: 280px !important; }
+}
+
+/* Nezávazná poptávka — form na mobilu */
+@media (max-width: 768px) {
+  .contact-form-card { padding: 20px 18px !important; }
+}
+
 /* Before/After compare */
 .compare-grid { align-items: stretch; }
 .compare {
@@ -498,6 +510,9 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   transform: translateX(-50%);
   width: 3px; background: rgba(255,255,255,0.7);
   border: 0; cursor: ew-resize; z-index: 3;
+  /* Větší touch target na mobilu (min. 44px) */
+  padding: 0 24px;
+  margin-left: -24px;
 }
 .compare .compare-handle::after {
   content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
@@ -654,6 +669,7 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
   .submenu a { padding: 6px 8px; }
   .container { padding: 0 16px; }
   .card-media { height: 190px; }
+  .header-top .brand-name { font-size: 1.15rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 10px; }
   .footer-columns { grid-template-columns: 1fr; gap: 16px; }
 }
