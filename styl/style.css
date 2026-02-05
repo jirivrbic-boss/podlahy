@@ -257,12 +257,27 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 
 /* Reference — stavby, kde jsme pracovali */
 .ref-buildings-section { padding-top: 48px; }
+.ref-buildings-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+.ref-buildings-header-text {
+  min-width: 0;
+}
 .ref-buildings-intro {
   max-width: 56ch;
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  margin-top: 8px;
   font-size: 17px;
   line-height: 1.75;
   color: var(--text-dim);
+}
+.ref-category-doprava {
+  flex-shrink: 0;
+  min-width: 260px;
 }
 .ref-buildings-grid {
   display: grid;
@@ -346,7 +361,13 @@ p  { color: var(--text-dim); line-height: 1.65; margin: 0 0 12px 0; }
 }
 @media (max-width: 768px) {
   .ref-buildings-section { padding-top: 36px; }
-  .ref-buildings-intro { margin-bottom: 28px; font-size: 16px; }
+  .ref-buildings-header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+  .ref-category-doprava { min-width: 0; }
+  .ref-buildings-intro { margin-bottom: 0; font-size: 16px; }
   .ref-buildings-grid {
     grid-template-columns: 1fr;
     gap: 18px;
